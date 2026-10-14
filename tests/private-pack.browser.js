@@ -52,6 +52,14 @@ try{
  await ctx.setOffline(true);await page.reload();
  await page.locator('nav a[href="#course"]').click();await page.getByRole('button',{name:'阅读本机 PDF 与知识索引'}).first().click();
  assert.equal(await page.locator('#source-note').inputValue(),'我自己的学习笔记');
+ // Reproduce the older 60-question database and upgrade using stored PDFs only.
+ await ctx.setOffline(false);
+ await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('fde-state-v1'));s.questions=s.questions.filter(q=>q.id.startsWith('fde-course-'));s.sources=s.sources.filter(x=>x.courseId===4742);s.exam=null;delete s.studyEdition;localStorage.setItem('fde-state-v1',JSON.stringify(s));});
+ await page.goto('http://127.0.0.1:4173/#review');await page.reload();
+ await page.waitForFunction(()=>JSON.parse(localStorage.getItem('fde-state-v1')).questions.filter(q=>q.origin==='reference').length===14,{},{timeout:60000});
+ saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('fde-state-v1')));
+ assert.equal(saved.questions.length,98);assert.equal(saved.questions.find(q=>q.id==='fde-course-ch1-01').status,'reviewed');assert.ok(Object.values(saved.notes).includes('我自己的学习笔记'));
+ await page.locator('#review-origin').selectOption('reference');assert.equal(await page.locator('details').count(),14);
  assert.ok(requests.every(r=>r.method==='GET'));
  // Native Chromium PDF viewer loads bundled chrome resources, not network uploads.
  const unexpected=requests.filter(r=>!r.url.startsWith('http://127.0.0.1:4173/')&&!r.url.startsWith('blob:')&&!r.url.startsWith('chrome://resources/')&&!r.url.startsWith('chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/'));
