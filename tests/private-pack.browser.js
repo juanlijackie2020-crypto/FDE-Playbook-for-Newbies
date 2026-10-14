@@ -1,0 +1,48 @@
+import {createRequire} from 'node:module';
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import path from 'node:path';
+const root=process.env.FDE_PRIVATE_DIR;
+if(!root)throw Error('Set FDE_PRIVATE_DIR to a local private material directory; no course files are bundled with tests.');
+const manifest=JSON.parse(await readFile(path.join(root,'manifest.json'),'utf8'));
+const payloads=await Promise.all(manifest.map(async m=>({name:m.originalName,mimeType:'application/pdf',buffer:await readFile(path.join(root,m.filename))})));
+const {chromium}=createRequire(import.meta.url)('playwright');
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
+const ctx=await browser.newContext(),page=await ctx.newPage(),errors=[],requests=[];
+page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push({url:r.url(),method:r.method()}));
+try{
+ await page.goto('http://127.0.0.1:4173/#course');
+ await page.getByRole('button',{name:'选择原四份 PDF，解锁学习包'}).waitFor();
+ await page.evaluate(()=>navigator.serviceWorker.ready);await page.reload();
+ await page.locator('#unlock-pdfs').setInputFiles(payloads);
+ await page.getByText(/学习包已导入：60 道生成题待审校/).waitFor({timeout:60000});
+ let saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('fde-state-v1')));
+ assert.equal(saved.sources.length,4);assert.equal(saved.sources.reduce((n,s)=>n+s.pages,0),283);
+ assert.equal(saved.questions.length,60);assert.ok(saved.questions.every(q=>q.status==='pending'&&q.origin==='generated'));
+ assert.equal(saved.cases.length,6);assert.equal(Object.keys(saved.notes).length,4);
+ assert.equal(await page.getByRole('button',{name:'阅读本机 PDF 与知识索引'}).count(),4);
+ await page.getByRole('button',{name:'阅读本机 PDF 与知识索引'}).first().click();
+ assert.ok((await page.locator('#source-note').inputValue()).includes('Embedding'));
+ await page.locator('#source-note').fill('我自己的学习笔记');await page.getByRole('button',{name:'保存笔记',exact:true}).click();
+ await page.locator('nav a[href="#course"]').click();
+ await page.locator('#unlock-pdfs').setInputFiles(payloads);
+ await page.getByText(/学习包已导入：60 道生成题待审校/).waitFor({timeout:60000});
+ saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('fde-state-v1')));assert.equal(saved.questions.length,60);assert.equal(saved.cases.length,6);assert.ok(Object.values(saved.notes).includes('我自己的学习笔记'));
+ await page.getByRole('link',{name:'核验生成题'}).click();
+ await page.getByRole('heading',{name:'先核对依据，再采纳题目。'}).waitFor();
+ await page.locator('details').first().locator('summary').click();
+ await page.getByRole('button',{name:'已核对原文，采纳'}).first().click();
+ await page.waitForFunction(()=>JSON.parse(localStorage.getItem('fde-state-v1')).questions.filter(q=>q.status==='reviewed').length===1);
+ await page.locator('nav a[href="#practice"]').click();
+ await page.getByRole('heading',{name:/工程师把所有判断规则/}).waitFor();
+ await page.locator('input[name=choice][value="0"]').check();await page.getByRole('button',{name:'提交答案'}).click();await page.getByRole('heading',{name:'回答正确 · 1.5 分'}).waitFor();
+ await ctx.setOffline(true);await page.reload();
+ await page.locator('nav a[href="#course"]').click();await page.getByRole('button',{name:'阅读本机 PDF 与知识索引'}).first().click();
+ assert.equal(await page.locator('#source-note').inputValue(),'我自己的学习笔记');
+ assert.ok(requests.every(r=>r.method==='GET'));
+ // Native Chromium PDF viewer loads bundled chrome resources, not network uploads.
+ const unexpected=requests.filter(r=>!r.url.startsWith('http://127.0.0.1:4173/')&&!r.url.startsWith('blob:')&&!r.url.startsWith('chrome://resources/')&&!r.url.startsWith('chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/'));
+ assert.equal(unexpected.length,0,JSON.stringify(unexpected.slice(0,5)));
+ assert.deepEqual(errors,[]);
+ console.log('PASS real private pack: four PDFs unlock locally, 283 pages, 60 pending questions, 6 cases, indexed notes, repeated unlock preserves personal edits, explicit review, scoring, offline persistence, no uploads.');
+}finally{await browser.close();}

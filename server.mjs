@@ -1,7 +1,7 @@
 import http from 'node:http';
 import {readFile} from 'node:fs/promises';
 const port=Number(process.env.PORT||4173);
-const allowed=new Map([['index.html','text/html; charset=utf-8'],['style.css','text/css; charset=utf-8'],['app.js','text/javascript; charset=utf-8'],['core.js','text/javascript; charset=utf-8'],['sw.js','text/javascript; charset=utf-8'],['manifest.json','application/manifest+json'],['icon.svg','image/svg+xml'],['course.json','application/json; charset=utf-8']]);
+const allowed=new Map([['index.html','text/html; charset=utf-8'],['style.css','text/css; charset=utf-8'],['app.js','text/javascript; charset=utf-8'],['core.js','text/javascript; charset=utf-8'],['sw.js','text/javascript; charset=utf-8'],['manifest.json','application/manifest+json'],['icon.svg','image/svg+xml'],['course.json','application/json; charset=utf-8'],['study-pack.js','text/javascript; charset=utf-8'],['study-pack.enc.json','application/json; charset=utf-8']]);
 const server=http.createServer(async(req,res)=>{
  try {
   const name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).slice(1)||'index.html';

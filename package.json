@@ -1,1 +1,1 @@
-{"name":"fde-playbook","version":"0.1.0","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test tests/core.test.js","test:browser":"node tests/browser.test.js"}}
+{"name":"fde-playbook","version":"0.2.0","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test tests/core.test.js tests/study-pack.test.js","test:browser":"node tests/browser.test.js","test:private":"node tests/private-pack.browser.js"}}

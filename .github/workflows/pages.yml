@@ -19,11 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check application logic
-        run: node --test tests/core.test.js
+        run: node --test tests/core.test.js tests/study-pack.test.js
       - name: Prepare public application only
         run: |
           mkdir _site
-          cp index.html style.css app.js core.js course.json sw.js manifest.json icon.svg _site/
+          cp index.html style.css app.js core.js study-pack.js course.json study-pack.enc.json sw.js manifest.json icon.svg _site/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
         with:
