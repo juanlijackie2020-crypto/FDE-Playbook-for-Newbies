@@ -16,6 +16,10 @@ try {
  await page.waitForFunction(()=>Boolean(navigator.serviceWorker.controller));
  await fs.mkdir('test-results',{recursive:true});
  await page.screenshot({path:'test-results/home.png',fullPage:true});
+ await page.locator('nav a[href="#course"]').click();
+ await page.getByRole('heading',{name:'腾讯云 ADP FDE 认证课程'}).waitFor();
+ assert.equal(await page.getByRole('link',{name:'打开原课 ↗'}).count(),19);
+ assert.ok(await page.getByRole('link',{name:'打开原课 ↗'}).first().getAttribute('href')==='https://cloud.tencent.com/edu/learning/course-4742-84527-84531');
  await page.locator('nav a[href="#library"]').click();
  await page.locator('#file-input').setInputFiles({name:'RAG-notes.md',mimeType:'text/plain',buffer:Buffer.from('# 私有学习笔记\n检索与评测资料。')});
  await page.getByRole('heading',{name:'RAG-notes.md'}).waitFor();
@@ -77,6 +81,9 @@ try {
  // Offline shell reload and local private reading.
  await context.setOffline(true);await page.reload();
  await page.getByRole('heading',{name:'你的数据，由你保留。'}).waitFor();
+ await page.locator('nav a[href="#course"]').click();
+ await page.getByRole('heading',{name:'腾讯云 ADP FDE 认证课程'}).waitFor();
+ assert.equal(await page.getByRole('link',{name:'打开原课 ↗'}).count(),19);
  await page.locator('nav a[href="#library"]').click();
  await page.getByRole('button',{name:'打开阅读'}).click();
  await page.getByText('# 私有学习笔记',{exact:false}).waitFor();

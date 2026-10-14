@@ -54,6 +54,10 @@
 
 腾讯课程访问此前收到环境代理 403，尚未下载；百度网盘资料尚未提供。获取合法可下载的课程资料和官方大纲后，需要继续整理章节、生成并核验题目、建立实际课程案例。完整 PRD 见 `PRD.md`。
 
+2026-10-14 更新：已读取腾讯官方课程入口，并加入“官方课程”页面，展示核验后的 4 章 / 19 节目录及每节原课链接。目录可离线查看，原课需要联网。正文对象由 `cert-private-1255893580.cos.accelerate.myqcloud.com` 提供，当前环境访问返回代理 CONNECT 403，尚未取得正文、图片、附件或视频，不能称为完整课程镜像。获取记录保存在 Git 忽略目录 `private/tencent-course-4742/`，公开发布仅包含目录。
+
+修改应用后运行 `node scripts/build-standalone.mjs` 更新单文件版。GitHub Pages 发布包只包含应用核心文件与 `course.json`，不包含 `private/`。
+
 ## 界面无法下载 ZIP 时
 
 打开 `FDE-standalone.html`，选择 Copy file content，将完整内容粘贴到 Windows 记事本。另存为 `FDE.html`，文件类型选择“所有文件”，编码 UTF-8；用 Edge / Chrome 打开。单文件版嵌入全部脚本与样式，无需 Node 或本地服务器。请保持文件路径不变，移动前导出备份。

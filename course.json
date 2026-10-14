@@ -1,0 +1,147 @@
+{
+  "courseId": 4742,
+  "title": "腾讯云 ADP 前沿部署工程师 (FDE) 认证课程",
+  "source": "https://cloud.tencent.com/edu/learning/course-4742-84527-84531",
+  "fetchedAt": "2026-10-14",
+  "contentStatus": "directory-only",
+  "chapters": [
+    {
+      "id": 84527,
+      "title": "AI 和 Agent 基础",
+      "sections": [
+        {
+          "id": 84531,
+          "title": "1.1 AI 基础",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84527-84531",
+          "status": "pending"
+        },
+        {
+          "id": 84532,
+          "title": "1.2 大语言模型的进化之路：从“会接龙”到“会做事”",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84527-84532",
+          "status": "pending"
+        },
+        {
+          "id": 84533,
+          "title": "1.3 智能体（Agent）基础",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84527-84533",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": 84528,
+      "title": "ADP 产品能力",
+      "sections": [
+        {
+          "id": 84534,
+          "title": "2.1 ADP 是什么：企业级智能体开发平台",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84528-84534",
+          "status": "pending"
+        },
+        {
+          "id": 84535,
+          "title": "2.2 上 基础能力：应用、模型、角色指令、变量与长期记忆",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84528-84535",
+          "status": "pending"
+        },
+        {
+          "id": 84536,
+          "title": "2.2 中 知识与连接能力：知识库、工具、连接器与 Skills",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84528-84536",
+          "status": "pending"
+        },
+        {
+          "id": 84537,
+          "title": "2.2 下 任务执行与编排能力：Workflow、Multi-Agent 与 Claw",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84528-84537",
+          "status": "pending"
+        },
+        {
+          "id": 84538,
+          "title": "2.3 从开发到上线：ADP 应用的完整使用流程",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84528-84538",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": 84529,
+      "title": "使用 ADP 开发智能体",
+      "sections": [
+        {
+          "id": 84539,
+          "title": "3.1 方案设计方法",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84529-84539",
+          "status": "pending"
+        },
+        {
+          "id": 84540,
+          "title": "3.2 标准模式实战：知识助手",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84529-84540",
+          "status": "pending"
+        },
+        {
+          "id": 84541,
+          "title": "3.3 单工作流模式实战：客服助手",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84529-84541",
+          "status": "pending"
+        },
+        {
+          "id": 84542,
+          "title": "3.4 Multi-Agent 模式实战：内容创作助手",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84529-84542",
+          "status": "pending"
+        },
+        {
+          "id": 84543,
+          "title": "3.5 Claw 模式实战",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84529-84543",
+          "status": "pending"
+        },
+        {
+          "id": 84544,
+          "title": "3.6 智能工作台实战",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84529-84544",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": 84530,
+      "title": "评测与优化智能体",
+      "sections": [
+        {
+          "id": 84545,
+          "title": "4.1 智能体调试与评测基础",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84530-84545",
+          "status": "pending"
+        },
+        {
+          "id": 84546,
+          "title": "4.2 Prompt 调优",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84530-84546",
+          "status": "pending"
+        },
+        {
+          "id": 84547,
+          "title": "4.3 知识库质量与 RAG 调优",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84530-84547",
+          "status": "pending"
+        },
+        {
+          "id": 84548,
+          "title": "4.4 Workflow 调优",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84530-84548",
+          "status": "pending"
+        },
+        {
+          "id": 84549,
+          "title": "4.5 Multi-Agent 调优",
+          "url": "https://cloud.tencent.com/edu/learning/course-4742-84530-84549",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}

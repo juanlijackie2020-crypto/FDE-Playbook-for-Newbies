@@ -23,7 +23,7 @@ jobs:
       - name: Prepare public application only
         run: |
           mkdir _site
-          cp index.html style.css app.js core.js sw.js manifest.json icon.svg _site/
+          cp index.html style.css app.js core.js course.json sw.js manifest.json icon.svg _site/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
         with:
