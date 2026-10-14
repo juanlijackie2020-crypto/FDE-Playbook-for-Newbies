@@ -27,3 +27,12 @@ test('mock exam excludes demo and pending questions, captures snapshot and score
  questions[0].stem='changed';assert.ok(e.questions.every(q=>q.stem!=='changed'));
  assert.throws(()=>makeExam(questions.map(q=>({...q,status:'pending'}))),/不足/);
 });
+test('short scenario simulation excludes foundation questions and keeps a 25-point, 25-minute snapshot',()=>{
+ const foundation=Array.from({length:60},(_,i)=>({...DEMOS[i<40?0:1],id:'foundation'+i,origin:'generated'}));
+ assert.throws(()=>makeExam(foundation,0,'mini'),/不足/);
+ const scenarios=Array.from({length:15},(_,i)=>({...DEMOS[i<10?0:1],id:'scenario'+i,origin:i%2?'generated':'reference',style:'scenario'}));
+ const e=makeExam([...foundation,...scenarios],1000,'mini');
+ assert.equal(e.questions.length,15);assert.equal(e.totalScore,25);assert.equal(e.deadline,1501000);
+ assert.equal(new Set(e.questions.map(q=>q.id)).size,15);assert.ok(e.questions.every(q=>q.id.startsWith('scenario')));
+ e.questions.forEach(q=>e.answers[q.id]=q.answer);assert.equal(examResult(e).score,25);
+});

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {derivePDFKey,decryptStudyPack,prepareStudyPack} from '../study-pack.js';
+import {derivePDFKey,decryptStudyPack,prepareStudyPack,materializeStudySources} from '../study-pack.js';
 import {DEMOS,CASE_FIELDS} from '../core.js';
 test('private study pack resolves file digests to local IDs without trusting old IDs',()=>{
  const digest='a'.repeat(64),source={id:'source',digest,text:'PDF text',pages:10,chapter:1};
@@ -12,6 +12,15 @@ test('private study pack resolves file digests to local IDs without trusting old
  assert.equal(ready.questions[0].sourceId,'local');assert.equal(ready.notes.local,'note');
  assert.throws(()=>prepareStudyPack({...pack,questions:[{...q,status:'reviewed'}]},[{id:'local',digest,ext:'pdf'}]),/待审校/);
  assert.throws(()=>prepareStudyPack({...pack,questions:[{...q,pdfPage:100}]},[{id:'local',digest,ext:'pdf'}]),/页码/);
+});
+test('encrypted embedded reference PDF verifies its digest before creating a local source',async()=>{
+ const raw=new TextEncoder().encode('%PDF-synthetic reference');
+ const digest=Buffer.from(await crypto.subtle.digest('SHA-256',raw)).toString('hex');
+ const source={id:'ref',title:'review.pdf',digest,embeddedPDF:Buffer.from(raw).toString('base64')};
+ const additions=await materializeStudySources({sources:[source]},[]);
+ assert.equal(additions.length,1);assert.equal(additions[0].meta.digest,digest);
+ assert.equal((await materializeStudySources({sources:[source]},[additions[0].meta])).length,0);
+ await assert.rejects(materializeStudySources({sources:[{...source,digest:'a'.repeat(64)}]},[]),/完整性/);
 });
 test('PDF key derivation enforces four chapters, decrypts authentic AES-GCM and rejects changed files',async()=>{
  const files=[1,2,3,4].map(ch=>new File([`synthetic-${ch}`],`CHAPTER 0${ch}.pdf`));

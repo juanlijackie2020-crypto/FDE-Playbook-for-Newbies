@@ -9,21 +9,24 @@ export function validateQuestion(q, sourceIds) {
   if (!q || typeof q !== 'object' || !['single','multiple'].includes(q.type) || typeof q.stem !== 'string' || !q.stem.trim()) throw Error('题干或题型无效');
   if (!Array.isArray(q.options) || q.options.length < 2 || q.options.length > 8 || q.options.some(x => typeof x !== 'string' || !x.trim())) throw Error('选项应为 2–8 个非空文本');
   if (!Array.isArray(q.answer) || !q.answer.length || new Set(q.answer).size !== q.answer.length || q.answer.some(x => !Number.isInteger(x) || x < 0 || x >= q.options.length) || (q.type === 'single' && q.answer.length !== 1)) throw Error('答案索引无效');
-  if (!['official','generated','demo'].includes(q.origin) || !['draft','reviewed','pending'].includes(q.status)) throw Error('来源标签或审校状态无效');
+  if (!['official','generated','reference','demo'].includes(q.origin) || !['draft','reviewed','pending'].includes(q.status)) throw Error('来源标签或审校状态无效');
   if (typeof q.explanation !== 'string' || !Array.isArray(q.optionExplanations) || q.optionExplanations.length !== q.options.length || q.optionExplanations.some(x=>typeof x!=='string' || !x.trim())) throw Error('需提供总解析和每个选项的解析');
   if (!TOPICS.includes(q.topic)) throw Error('题目主题无效');
   if (q.origin !== 'demo' && (!sourceIds.includes(q.sourceId) || typeof q.locator !== 'string' || !q.locator.trim())) throw Error('题目必须关联已导入资料和页码／章节／时间戳');
   return q;
 }
-export function examPool(questions) {
-  const ready = questions.filter(q=>q.status==='reviewed' && q.origin!=='demo');
+export function examPool(questions, mode='full') {
+  const ready = questions.filter(q=>q.status==='reviewed' && q.origin!=='demo' && (mode==='full'||q.style==='scenario'||q.origin==='reference'));
   return {single:ready.filter(q=>q.type==='single'),multiple:ready.filter(q=>q.type==='multiple')};
 }
-export function makeExam(questions, now = Date.now()) {
-  const pool=examPool(questions);
-  if(pool.single.length<40 || pool.multiple.length<20) throw Error('已审校题库不足：需要 40 道单选和 20 道多选');
+export function makeExam(questions, now = Date.now(), mode='full') {
+  if(!['full','mini'].includes(mode))throw Error('模拟模式无效');
+  const singleCount=mode==='mini'?10:40,multipleCount=mode==='mini'?5:20,minutes=mode==='mini'?25:90;
+  const pool=examPool(questions,mode);
+  if(pool.single.length<singleCount || pool.multiple.length<multipleCount) throw Error(`已审校${mode==='mini'?'情境':'综合'}题库不足：需要 ${singleCount} 道单选和 ${multipleCount} 道多选`);
   const shuffle = xs => { const a=[...xs]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a; };
-  return {questions:[...shuffle(pool.single).slice(0,40),...shuffle(pool.multiple).slice(0,20)].map(q=>structuredClone(q)),answers:{},flags:[],index:0,startedAt:now,deadline:now+90*60000,submittedAt:null};
+  const spread=(items,n)=>{const groups=shuffle(TOPICS).map(topic=>shuffle(items.filter(q=>q.topic===topic))),picked=[];while(picked.length<n){for(const group of groups){if(group.length&&picked.length<n)picked.push(group.pop());}}return picked;};
+  return {mode,totalScore:singleCount*1.5+multipleCount*2,questions:[...spread(pool.single,singleCount),...spread(pool.multiple,multipleCount)].map(q=>structuredClone(q)),answers:{},flags:[],index:0,startedAt:now,deadline:now+minutes*60000,submittedAt:null};
 }
 export function examResult(exam) {
   let score=0,right=0,unanswered=0;
