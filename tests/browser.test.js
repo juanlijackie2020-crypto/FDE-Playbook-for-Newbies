@@ -21,6 +21,7 @@ try {
  assert.equal(await page.getByRole('link',{name:'打开原课 ↗'}).count(),19);
  assert.ok(await page.getByRole('link',{name:'打开原课 ↗'}).first().getAttribute('href')==='https://cloud.tencent.com/edu/learning/course-4742-84527-84531');
  await page.locator('nav a[href="#library"]').click();
+ await page.getByRole('heading',{name:'你的资料书架'}).waitFor();
  await page.locator('#file-input').setInputFiles({name:'RAG-notes.md',mimeType:'text/plain',buffer:Buffer.from('# 私有学习笔记\n检索与评测资料。')});
  await page.getByRole('heading',{name:'RAG-notes.md'}).waitFor();
  await page.getByRole('button',{name:'打开阅读'}).click();

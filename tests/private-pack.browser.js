@@ -21,6 +21,17 @@ try{
  assert.equal(saved.questions.length,98);assert.ok(saved.questions.every(q=>q.status==='pending'&&['generated','reference'].includes(q.origin)));
  assert.equal(saved.cases.length,6);assert.equal(Object.keys(saved.notes).length,5);assert.equal(saved.questions.filter(q=>q.origin==='reference').length,14);assert.ok(!saved.questions.some(q=>q.id==='mock-reference-12'));assert.ok(saved.questions.filter(q=>q.origin==='reference').every(q=>q.provenance.includes('未经官方')));
  assert.equal(await page.getByRole('button',{name:'阅读本机 PDF 与知识索引'}).count(),4);
+ // Regression: the user's zero-reviewed state must allow explicitly labelled training.
+ await page.locator('nav a[href="#exam"]').click();
+ await page.getByRole('button',{name:'开始 90 分钟模拟'}).waitFor();
+ assert.ok(await page.getByRole('button',{name:'开始 90 分钟模拟'}).isEnabled());
+ await page.locator('#exam-policy').selectOption('reviewed');assert.ok(await page.getByRole('button',{name:'开始 90 分钟模拟'}).isDisabled());
+ await page.locator('#exam-policy').selectOption('training');await page.getByRole('button',{name:'开始 90 分钟模拟'}).click();
+ await page.locator('#exam-clock').waitFor();await page.reload();await page.locator('#exam-clock').waitFor();
+ const training=await page.evaluate(()=>JSON.parse(localStorage.getItem('fde-state-v1')));
+ assert.equal(training.exam.questions.length,60);assert.equal(training.exam.policy,'training');assert.ok(training.questions.every(q=>q.status==='pending'));
+ await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('fde-state-v1'));s.exam=null;localStorage.setItem('fde-state-v1',JSON.stringify(s));});
+ await page.goto('http://127.0.0.1:4173/#course');await page.reload();
  await page.getByRole('button',{name:'阅读本机 PDF 与知识索引'}).first().click();
  assert.ok((await page.locator('#source-note').inputValue()).includes('Embedding'));
  await page.locator('#source-note').fill('我自己的学习笔记');await page.getByRole('button',{name:'保存笔记',exact:true}).click();

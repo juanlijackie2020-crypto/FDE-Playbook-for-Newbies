@@ -15,18 +15,19 @@ export function validateQuestion(q, sourceIds) {
   if (q.origin !== 'demo' && (!sourceIds.includes(q.sourceId) || typeof q.locator !== 'string' || !q.locator.trim())) throw Error('题目必须关联已导入资料和页码／章节／时间戳');
   return q;
 }
-export function examPool(questions, mode='full') {
-  const ready = questions.filter(q=>q.status==='reviewed' && q.origin!=='demo' && (mode==='full'||q.style==='scenario'||q.origin==='reference'));
+export function examPool(questions, mode='full', policy='reviewed') {
+  const ready = questions.filter(q=>(q.status==='reviewed'||(policy==='training'&&q.status==='pending')) && TOPICS.includes(q.topic) && q.origin!=='demo' && (mode==='full'||q.style==='scenario'||q.origin==='reference'));
   return {single:ready.filter(q=>q.type==='single'),multiple:ready.filter(q=>q.type==='multiple')};
 }
-export function makeExam(questions, now = Date.now(), mode='full') {
+export function makeExam(questions, now = Date.now(), mode='full', policy='reviewed') {
   if(!['full','mini'].includes(mode))throw Error('模拟模式无效');
   const singleCount=mode==='mini'?10:40,multipleCount=mode==='mini'?5:20,minutes=mode==='mini'?25:90;
-  const pool=examPool(questions,mode);
-  if(pool.single.length<singleCount || pool.multiple.length<multipleCount) throw Error(`已审校${mode==='mini'?'情境':'综合'}题库不足：需要 ${singleCount} 道单选和 ${multipleCount} 道多选`);
+  if(!['training','reviewed'].includes(policy))throw Error('题库模式无效');
+  const pool=examPool(questions,mode,policy);
+  if(pool.single.length<singleCount || pool.multiple.length<multipleCount) throw Error(`${policy==='training'?'可训练':'已审校'}${mode==='mini'?'情境':'综合'}题库不足：需要 ${singleCount} 道单选和 ${multipleCount} 道多选`);
   const shuffle = xs => { const a=[...xs]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a; };
   const spread=(items,n)=>{const groups=shuffle(TOPICS).map(topic=>shuffle(items.filter(q=>q.topic===topic))),picked=[];while(picked.length<n){for(const group of groups){if(group.length&&picked.length<n)picked.push(group.pop());}}return picked;};
-  return {mode,totalScore:singleCount*1.5+multipleCount*2,questions:[...spread(pool.single,singleCount),...spread(pool.multiple,multipleCount)].map(q=>structuredClone(q)),answers:{},flags:[],index:0,startedAt:now,deadline:now+minutes*60000,submittedAt:null};
+  return {mode,policy,totalScore:singleCount*1.5+multipleCount*2,questions:[...spread(pool.single,singleCount),...spread(pool.multiple,multipleCount)].map(q=>structuredClone(q)),answers:{},flags:[],index:0,startedAt:now,deadline:now+minutes*60000,submittedAt:null};
 }
 export function examResult(exam) {
   let score=0,right=0,unanswered=0;

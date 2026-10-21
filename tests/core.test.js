@@ -36,3 +36,12 @@ test('short scenario simulation excludes foundation questions and keeps a 25-poi
  assert.equal(new Set(e.questions.map(q=>q.id)).size,15);assert.ok(e.questions.every(q=>q.id.startsWith('scenario')));
  e.questions.forEach(q=>e.answers[q.id]=q.answer);assert.equal(examResult(e).score,25);
 });
+test('training can start with zero reviewed questions without changing review state',()=>{
+ const pending=Array.from({length:60},(_,i)=>({...DEMOS[i<40?0:1],id:'pending'+i,origin:'generated',status:'pending'}));
+ assert.throws(()=>makeExam(pending,0,'full','reviewed'),/不足/);
+ const e=makeExam(pending,0,'full','training');
+ assert.equal(e.questions.length,60);assert.equal(e.policy,'training');assert.equal(e.totalScore,100);
+ assert.ok(e.questions.every(q=>q.status==='pending'));assert.ok(pending.every(q=>q.status==='pending'));
+ assert.throws(()=>makeExam(pending.map(q=>({...q,status:'draft'})),0,'full','training'),/不足/);
+ assert.throws(()=>makeExam(pending.map(q=>({...q,origin:'demo'})),0,'full','training'),/不足/);
+});
