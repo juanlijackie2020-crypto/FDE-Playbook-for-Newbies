@@ -1,0 +1,1 @@
+export const PUBLIC_FILES = ['index.html','style.css','app.js','core.js','study-pack.js','store.js','i18n.js','platform.js','config.json','course.json','study-pack.enc.json','sw.js','manifest.json','icon.svg',...['taxonomy','knowledge','books','resources','cases','case-fields','scenarios','home'].map(n=>`content/${n}.json`)];

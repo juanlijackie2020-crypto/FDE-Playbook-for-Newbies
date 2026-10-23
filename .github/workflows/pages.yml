@@ -18,13 +18,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Check application logic
-        run: node --test tests/core.test.js tests/study-pack.test.js
+        run: npm test
       - name: Prepare public application only
-        run: |
-          mkdir _site
-          cp index.html style.css app.js core.js study-pack.js course.json study-pack.enc.json sw.js manifest.json icon.svg _site/
-          touch _site/.nojekyll
+        run: npm run build
       - uses: actions/configure-pages@v5
         with:
           enablement: true

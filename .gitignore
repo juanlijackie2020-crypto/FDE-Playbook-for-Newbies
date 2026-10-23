@@ -3,3 +3,8 @@ node_modules/
 private/
 *private-backup*.json
 test-results/
+
+_site/
+.env
+.env.*
+!.env.example

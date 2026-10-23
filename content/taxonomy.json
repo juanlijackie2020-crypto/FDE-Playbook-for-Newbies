@@ -1,0 +1,143 @@
+{
+  "topics": [
+    {
+      "id": "foundations",
+      "label": {
+        "zh": "FDE 基础",
+        "en": "FDE foundations"
+      }
+    },
+    {
+      "id": "discovery",
+      "label": {
+        "zh": "需求发现",
+        "en": "Discovery"
+      }
+    },
+    {
+      "id": "design",
+      "label": {
+        "zh": "方案设计",
+        "en": "Solution design"
+      }
+    },
+    {
+      "id": "data",
+      "label": {
+        "zh": "数据与知识工程",
+        "en": "Data & knowledge"
+      }
+    },
+    {
+      "id": "agents",
+      "label": {
+        "zh": "Agent 与工作流",
+        "en": "Agents & workflows"
+      }
+    },
+    {
+      "id": "delivery",
+      "label": {
+        "zh": "评估与交付",
+        "en": "Evaluation & delivery"
+      }
+    },
+    {
+      "id": "operations",
+      "label": {
+        "zh": "治理与运营",
+        "en": "Governance & operations"
+      }
+    }
+  ],
+  "sourceTypes": [
+    {
+      "id": "tencent",
+      "label": {
+        "zh": "腾讯官方课程",
+        "en": "Tencent official course"
+      }
+    },
+    {
+      "id": "personal",
+      "label": {
+        "zh": "个人提供文档",
+        "en": "Personal document"
+      }
+    },
+    {
+      "id": "reference",
+      "label": {
+        "zh": "其他参考资料",
+        "en": "Other reference"
+      }
+    }
+  ],
+  "stages": [
+    {
+      "id": "understand",
+      "label": {
+        "zh": "理解 FDE",
+        "en": "Understand FDE"
+      }
+    },
+    {
+      "id": "discover",
+      "label": {
+        "zh": "发现业务问题",
+        "en": "Discover the problem"
+      }
+    },
+    {
+      "id": "design",
+      "label": {
+        "zh": "设计方案",
+        "en": "Design a solution"
+      }
+    },
+    {
+      "id": "deliver",
+      "label": {
+        "zh": "验证与交付",
+        "en": "Validate & deliver"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "docs",
+      "label": {
+        "zh": "官方文档",
+        "en": "Official documentation"
+      }
+    },
+    {
+      "id": "tools",
+      "label": {
+        "zh": "技术工具",
+        "en": "Engineering tools"
+      }
+    },
+    {
+      "id": "engineering",
+      "label": {
+        "zh": "工程实践",
+        "en": "Engineering practice"
+      }
+    },
+    {
+      "id": "insights",
+      "label": {
+        "zh": "行业观察",
+        "en": "Industry perspectives"
+      }
+    },
+    {
+      "id": "community",
+      "label": {
+        "zh": "学习社区",
+        "en": "Learning communities"
+      }
+    }
+  ]
+}

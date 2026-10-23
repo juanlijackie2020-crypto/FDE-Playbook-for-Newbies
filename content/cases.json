@@ -1,0 +1,218 @@
+[
+  {
+    "id": "support-pilot",
+    "title": {
+      "zh": "企业知识助手：先验证能否回答",
+      "en": "Internal knowledge assistant: validate answerability first"
+    },
+    "summary": {
+      "zh": "虚构企业的内部支持团队希望减少重复答疑。此案例不对应任何真实客户。",
+      "en": "A fictional internal support team wants to reduce repetitive questions. This case represents no real customer."
+    },
+    "kind": "fictional",
+    "industry": "internal",
+    "problem": {
+      "zh": "重复查找政策资料",
+      "en": "Repeated policy lookup"
+    },
+    "topics": [
+      "data"
+    ],
+    "stage": "discover",
+    "knowledge": [
+      "discovery-map",
+      "rag-evidence",
+      "evaluation-delivery"
+    ],
+    "scenario": "support-pilot",
+    "source": {
+      "zh": "平台编写的虚构教学案例；建议为分析，不是实际交付记录。",
+      "en": "Fictional teaching case written for this platform; proposals are analysis, not an actual delivery record."
+    },
+    "url": "",
+    "status": "published",
+    "updatedAt": "2026-10-23",
+    "sections": [
+      {
+        "id": "background",
+        "body": {
+          "zh": "虚构企业的内部支持团队希望减少重复答疑。此案例不对应任何真实客户。",
+          "en": "A fictional internal support team wants to reduce repetitive questions. This case represents no real customer."
+        },
+        "nature": "premise"
+      },
+      {
+        "id": "pain",
+        "body": {
+          "zh": "员工难以确认文档是否最新，支持人员需要重复寻找依据。现有耗时与错误率未知。",
+          "en": "Employees cannot readily tell whether a policy is current; support staff repeatedly look for evidence. Current time and error rates are unknown."
+        },
+        "nature": "premise"
+      },
+      {
+        "id": "discovery",
+        "body": {
+          "zh": "请负责人演示一个最近的问题，确认谁提交、谁回答、谁批准政策，以及什么时候必须交给人工。",
+          "en": "Ask the owner to demonstrate a recent question. Clarify who asks, answers and approves policies, and when human escalation is required."
+        },
+        "nature": "premise"
+      },
+      {
+        "id": "conditions",
+        "body": {
+          "zh": "练习设定：资料散落在 PDF 与共享目录，部分可能为扫描件。访问权限、版本权威性和可用接口仍待确认。",
+          "en": "Scenario premise: documents are scattered across PDFs and shared folders; some may be scans. Access permissions, authoritative versions and available interfaces remain unconfirmed."
+        },
+        "nature": "premise"
+      },
+      {
+        "id": "design",
+        "body": {
+          "zh": "教学建议：先做只读、有引用的检索问答。按用户权限检索，证据不足时交给支持人员；不要自动修改政策或替用户执行审批。",
+          "en": "Teaching proposal: start with read-only retrieval and cited answers. Enforce permissions and escalate weak evidence; do not modify policies or perform approvals automatically."
+        },
+        "nature": "analysis"
+      },
+      {
+        "id": "pilot",
+        "body": {
+          "zh": "教学建议：选一个政策范围，与负责人收集脱敏的代表性问题和标准证据。先检查提取与检索，再评估回答。",
+          "en": "Teaching proposal: select one policy area and collect de-identified representative questions with expected evidence. Check extraction and retrieval before evaluating answers."
+        },
+        "nature": "analysis"
+      },
+      {
+        "id": "evaluation",
+        "body": {
+          "zh": "建议共同定义回答准确性、引用支持度、权限泄露、延迟与接管指标。阈值和当前基线未知，需要业务负责人确认。",
+          "en": "Proposed dimensions: correctness, citation support, permission leakage, latency and handoffs. Thresholds and baseline are unknown and need owner agreement."
+        },
+        "nature": "analysis"
+      },
+      {
+        "id": "operations",
+        "body": {
+          "zh": "建议指定知识更新责任人、异常反馈入口和停止服务的流程。试点未实际运行，没有项目结果或 ROI。",
+          "en": "Propose a knowledge maintenance owner, feedback path and shutdown procedure. No pilot has run; there are no project results or ROI."
+        },
+        "nature": "analysis"
+      },
+      {
+        "id": "risks",
+        "body": {
+          "zh": "关注过期文档、OCR 错误与跨权限检索。可复用经验：先核实资料的权威性，再讨论模型能力。",
+          "en": "Watch for stale policies, OCR errors and cross-permission retrieval. Reusable lesson: establish source authority before discussing model capability."
+        },
+        "nature": "analysis"
+      }
+    ]
+  },
+  {
+    "id": "service-workflow",
+    "title": {
+      "zh": "售后工单助手：从建议到可控行动",
+      "en": "Support ticket assistant: from advice to controlled action"
+    },
+    "summary": {
+      "zh": "虚构售后团队希望用 AI 帮助整理客户问题并创建工单。无真实企业或项目成果。",
+      "en": "A fictional support team wants AI to organize customer requests and create tickets. No real company or project outcome is represented."
+    },
+    "kind": "fictional",
+    "industry": "service",
+    "problem": {
+      "zh": "重复录入与跨系统协作",
+      "en": "Repeated entry and cross-system coordination"
+    },
+    "topics": [
+      "agents"
+    ],
+    "stage": "design",
+    "knowledge": [
+      "solution-boundary",
+      "agent-workflow",
+      "governance-loop"
+    ],
+    "scenario": "service-workflow",
+    "source": {
+      "zh": "平台编写的虚构教学案例；建议为分析，不是实际交付记录。",
+      "en": "Fictional teaching case written for this platform; proposals are analysis, not an actual delivery record."
+    },
+    "url": "",
+    "status": "published",
+    "updatedAt": "2026-10-23",
+    "sections": [
+      {
+        "id": "background",
+        "body": {
+          "zh": "虚构售后团队希望用 AI 帮助整理客户问题并创建工单。无真实企业或项目成果。",
+          "en": "A fictional support team wants AI to organize customer requests and create tickets. No real company or project outcome is represented."
+        },
+        "nature": "premise"
+      },
+      {
+        "id": "pain",
+        "body": {
+          "zh": "坐席在多个系统重复录入信息，担心漏字段或重复建单。具体频次和业务影响未知。",
+          "en": "Agents re-enter information across systems and worry about missing fields or duplicate tickets. Frequency and business impact are unknown."
+        },
+        "nature": "premise"
+      },
+      {
+        "id": "discovery",
+        "body": {
+          "zh": "从一个真实流程式的教学样例追问：输入来自哪里，谁检查信息，例外情况如何处理，哪些动作必须人工批准？",
+          "en": "Use a concrete workflow example: where does input arrive, who checks it, how are exceptions handled, and which actions require approval?"
+        },
+        "nature": "premise"
+      },
+      {
+        "id": "conditions",
+        "body": {
+          "zh": "练习设定：有客户消息和工单系统，接口权限、限流及幂等能力待技术负责人确认。",
+          "en": "Scenario premise: customer messages and a ticketing system exist; API permissions, limits and idempotency need technical confirmation."
+        },
+        "nature": "premise"
+      },
+      {
+        "id": "design",
+        "body": {
+          "zh": "教学建议：模型生成工单草稿，规则校验字段，人工确认后调用创建接口；失败不得无限重试。",
+          "en": "Teaching proposal: generate a draft, validate fields with rules, then create the ticket after human approval. Do not retry failures indefinitely."
+        },
+        "nature": "analysis"
+      },
+      {
+        "id": "pilot",
+        "body": {
+          "zh": "在测试环境用脱敏输入验证正常路径、缺字段、超时和重复请求。先限制到一个工单类型。",
+          "en": "Test normal requests, missing fields, timeouts and duplicates using de-identified input in a test environment. Limit the pilot to one ticket type."
+        },
+        "nature": "analysis"
+      },
+      {
+        "id": "evaluation",
+        "body": {
+          "zh": "共同定义字段准确性、重复建单、人工修改量和失败恢复条件；基线和接受阈值待确认。",
+          "en": "Agree measures for field correctness, duplicates, human edits and recovery. Baselines and acceptance thresholds are unconfirmed."
+        },
+        "nature": "analysis"
+      },
+      {
+        "id": "operations",
+        "body": {
+          "zh": "明确接口密钥保管、审计、回滚和人工接手。没有真实上线数据，不宣称节约成本。",
+          "en": "Define key custody, audit, rollback and handoff. No production evidence exists, so no savings are claimed."
+        },
+        "nature": "analysis"
+      },
+      {
+        "id": "risks",
+        "body": {
+          "zh": "写操作需最小权限与可追溯确认。可复用经验：以副作用和可恢复性决定自动化边界。",
+          "en": "Writes need least privilege and traceable approval. Reusable lesson: side effects and recoverability determine the automation boundary."
+        },
+        "nature": "analysis"
+      }
+    ]
+  }
+]

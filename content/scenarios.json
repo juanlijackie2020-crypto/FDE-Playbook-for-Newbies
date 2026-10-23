@@ -1,0 +1,236 @@
+[
+  {
+    "id": "support-pilot",
+    "title": {
+      "zh": "企业知识助手：先验证能否回答",
+      "en": "Internal knowledge assistant: validate answerability first"
+    },
+    "brief": {
+      "zh": "你是 FDE。先理解业务，不急于推荐工具；访谈结束时总结事实、假设和下一步。",
+      "en": "You are the FDE. Understand the business before recommending tools; conclude with facts, assumptions and next steps."
+    },
+    "opening": {
+      "zh": "我们想做一个 AI 助手，但还没想清楚怎么开始。你需要先了解什么？",
+      "en": "We want an AI assistant, but are unsure where to start. What would you like to understand first?"
+    },
+    "fallback": {
+      "zh": "这个问题我现在无法确定。能否先结合我们现有的工作流程说得更具体一点？",
+      "en": "I cannot confirm that yet. Could you make the question more specific to our current workflow?"
+    },
+    "dimensions": [
+      {
+        "id": "goal",
+        "label": {
+          "zh": "目标",
+          "en": "Goals"
+        },
+        "pattern": "为什么|目标|价值|改善|why|goal|outcome|improve",
+        "reply": {
+          "zh": "我希望同事能更快找到有效政策，但还没有可靠的耗时基线。",
+          "en": "I want colleagues to find valid policies faster, but we do not yet have a reliable time baseline."
+        },
+        "followup": {
+          "zh": "如果只能改善一件事，您最希望改变什么？为什么现在？",
+          "en": "If we could improve one thing, what would it be, and why now?"
+        }
+      },
+      {
+        "id": "workflow",
+        "label": {
+          "zh": "流程与痛点",
+          "en": "Workflow & pain"
+        },
+        "pattern": "流程|痛点|例子|目前|现在.*怎么|workflow|process|example|today|happen",
+        "reply": {
+          "zh": "同事在群里提问，支持人员翻共享目录再回复。上周有人引用了过期政策。",
+          "en": "Colleagues ask in chat; support staff search shared folders and reply. Someone cited an outdated policy last week."
+        },
+        "followup": {
+          "zh": "请带我走一遍最近发生的具体例子，哪里需要返工？",
+          "en": "Could you walk me through a recent example and where rework occurred?"
+        }
+      },
+      {
+        "id": "stakeholders",
+        "label": {
+          "zh": "利益相关者",
+          "en": "Stakeholders"
+        },
+        "pattern": "谁|负责人|审批|参与|stakeholder|who|owner|approve",
+        "reply": {
+          "zh": "支持团队使用它，HR 负责政策解释，IT 管权限。我不能替他们批准上线。",
+          "en": "Support will use it, HR interprets policy and IT manages access. I cannot approve deployment for them."
+        },
+        "followup": {
+          "zh": "谁使用、谁验收、谁能否决这次上线？",
+          "en": "Who uses this, who accepts it, and who can veto launch?"
+        }
+      },
+      {
+        "id": "data",
+        "label": {
+          "zh": "数据与系统",
+          "en": "Data & systems"
+        },
+        "pattern": "数据|文档|权限|系统|接口|pdf|data|document|access|system|api",
+        "reply": {
+          "zh": "资料在 PDF 和共享目录里，有扫描件。哪些版本有效、哪些可共享，我需要请 HR 和 IT 确认。",
+          "en": "We have PDFs and shared folders, including scans. HR and IT need to confirm which versions are current and shareable."
+        },
+        "followup": {
+          "zh": "哪些资料或接口可用？权限、质量和版本由谁确认？",
+          "en": "Which sources or APIs are available, and who verifies permissions, quality and versions?"
+        }
+      },
+      {
+        "id": "constraints",
+        "label": {
+          "zh": "约束与风险",
+          "en": "Constraints & risks"
+        },
+        "pattern": "预算|时间|约束|风险|团队|资源|cost|budget|time|constraint|risk|team",
+        "reply": {
+          "zh": "预算尚未批复，团队只能提供少量访谈时间。敏感信息不能随意发送到外部服务。",
+          "en": "Budget is not approved and the team has limited interview time. Sensitive information cannot be sent freely to external services."
+        },
+        "followup": {
+          "zh": "有哪些不可妥协的边界？谁能确认时间、资源与预算？",
+          "en": "Which boundaries are non-negotiable, and who can confirm time, resources and budget?"
+        }
+      },
+      {
+        "id": "success",
+        "label": {
+          "zh": "成功标准与下一步",
+          "en": "Success & next steps"
+        },
+        "pattern": "验收|成功|指标|下一步|确认.*理解|总结|success|metric|accept|next step|summari",
+        "reply": {
+          "zh": "我需要看到代表性任务上的证据，再和负责人定验收标准。下一步可以一起挑选脱敏样例。",
+          "en": "I need evidence on representative tasks before agreeing acceptance criteria with the owners. Next, we could select de-identified examples together."
+        },
+        "followup": {
+          "zh": "我们用什么证据判断试点成功？下一步谁负责什么？",
+          "en": "What evidence would make the pilot successful, and who will do what next?"
+        }
+      }
+    ]
+  },
+  {
+    "id": "service-workflow",
+    "title": {
+      "zh": "售后工单助手：从建议到可控行动",
+      "en": "Support ticket assistant: from advice to controlled action"
+    },
+    "brief": {
+      "zh": "你是 FDE。先理解业务，不急于推荐工具；访谈结束时总结事实、假设和下一步。",
+      "en": "You are the FDE. Understand the business before recommending tools; conclude with facts, assumptions and next steps."
+    },
+    "opening": {
+      "zh": "我们想做一个 AI 助手，但还没想清楚怎么开始。你需要先了解什么？",
+      "en": "We want an AI assistant, but are unsure where to start. What would you like to understand first?"
+    },
+    "fallback": {
+      "zh": "这个问题我现在无法确定。能否先结合我们现有的工作流程说得更具体一点？",
+      "en": "I cannot confirm that yet. Could you make the question more specific to our current workflow?"
+    },
+    "dimensions": [
+      {
+        "id": "goal",
+        "label": {
+          "zh": "目标",
+          "en": "Goals"
+        },
+        "pattern": "为什么|目标|价值|改善|why|goal|outcome|improve",
+        "reply": {
+          "zh": "我希望减少重复录入与漏字段，但还没量化损失。",
+          "en": "I want less repeated entry and fewer missing fields, but we have not quantified the impact."
+        },
+        "followup": {
+          "zh": "如果只能改善一件事，您最希望改变什么？为什么现在？",
+          "en": "If we could improve one thing, what would it be, and why now?"
+        }
+      },
+      {
+        "id": "workflow",
+        "label": {
+          "zh": "流程与痛点",
+          "en": "Workflow & pain"
+        },
+        "pattern": "流程|痛点|例子|目前|现在.*怎么|workflow|process|example|today|happen",
+        "reply": {
+          "zh": "坐席从聊天复制到表单，再到工单系统录入。最近一次超时后重试，出现了重复工单。",
+          "en": "Agents copy chat into a form and then a ticket system. A recent retry after a timeout created duplicate tickets."
+        },
+        "followup": {
+          "zh": "请带我走一遍最近发生的具体例子，哪里需要返工？",
+          "en": "Could you walk me through a recent example and where rework occurred?"
+        }
+      },
+      {
+        "id": "stakeholders",
+        "label": {
+          "zh": "利益相关者",
+          "en": "Stakeholders"
+        },
+        "pattern": "谁|负责人|审批|参与|stakeholder|who|owner|approve",
+        "reply": {
+          "zh": "坐席使用，客服主管验收，IT 负责接口。涉及退款仍需要另行审批。",
+          "en": "Agents use it, the support lead accepts it and IT owns the API. Refunds still require separate approval."
+        },
+        "followup": {
+          "zh": "谁使用、谁验收、谁能否决这次上线？",
+          "en": "Who uses this, who accepts it, and who can veto launch?"
+        }
+      },
+      {
+        "id": "data",
+        "label": {
+          "zh": "数据与系统",
+          "en": "Data & systems"
+        },
+        "pattern": "数据|文档|权限|系统|接口|pdf|data|document|access|system|api",
+        "reply": {
+          "zh": "有工单接口，但我不知道它是否支持幂等或测试环境，需要 IT 确认。",
+          "en": "There is a ticket API, but I do not know whether it supports idempotency or a test environment. IT must confirm."
+        },
+        "followup": {
+          "zh": "哪些资料或接口可用？权限、质量和版本由谁确认？",
+          "en": "Which sources or APIs are available, and who verifies permissions, quality and versions?"
+        }
+      },
+      {
+        "id": "constraints",
+        "label": {
+          "zh": "约束与风险",
+          "en": "Constraints & risks"
+        },
+        "pattern": "预算|时间|约束|风险|团队|资源|cost|budget|time|constraint|risk|team",
+        "reply": {
+          "zh": "预算尚未批复，团队只能提供少量访谈时间。敏感信息不能随意发送到外部服务。",
+          "en": "Budget is not approved and the team has limited interview time. Sensitive information cannot be sent freely to external services."
+        },
+        "followup": {
+          "zh": "有哪些不可妥协的边界？谁能确认时间、资源与预算？",
+          "en": "Which boundaries are non-negotiable, and who can confirm time, resources and budget?"
+        }
+      },
+      {
+        "id": "success",
+        "label": {
+          "zh": "成功标准与下一步",
+          "en": "Success & next steps"
+        },
+        "pattern": "验收|成功|指标|下一步|确认.*理解|总结|success|metric|accept|next step|summari",
+        "reply": {
+          "zh": "我需要看到代表性任务上的证据，再和负责人定验收标准。下一步可以一起挑选脱敏样例。",
+          "en": "I need evidence on representative tasks before agreeing acceptance criteria with the owners. Next, we could select de-identified examples together."
+        },
+        "followup": {
+          "zh": "我们用什么证据判断试点成功？下一步谁负责什么？",
+          "en": "What evidence would make the pilot successful, and who will do what next?"
+        }
+      }
+    ]
+  }
+]

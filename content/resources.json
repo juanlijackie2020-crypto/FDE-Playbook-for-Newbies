@@ -1,0 +1,130 @@
+[
+  {
+    "id": "tencent-docs",
+    "title": {
+      "zh": "腾讯云 ADP 文档",
+      "en": "Tencent Cloud ADP documentation"
+    },
+    "summary": {
+      "zh": "适合使用 ADP 的工程师，查找产品能力、配置方式及使用边界。",
+      "en": "For engineers working with ADP: check product capabilities, configuration and boundaries."
+    },
+    "category": "docs",
+    "tags": [
+      "agents",
+      "delivery"
+    ],
+    "topics": [
+      "agents",
+      "delivery"
+    ],
+    "url": "https://cloud.tencent.com/document/product/1759",
+    "sourceLanguage": "zh",
+    "cost": "unknown",
+    "verifiedAt": null,
+    "status": "published",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "id": "copilot-docs",
+    "title": {
+      "zh": "Microsoft Copilot Studio 文档",
+      "en": "Microsoft Copilot Studio documentation"
+    },
+    "summary": {
+      "zh": "适合已有 Copilot Studio 经验的学习者，对照理解主题、知识源、连接器与发布流程。",
+      "en": "For learners with Copilot Studio experience: compare topics, knowledge sources, connectors and publishing."
+    },
+    "category": "docs",
+    "tags": [
+      "agents",
+      "design"
+    ],
+    "topics": [
+      "agents",
+      "design"
+    ],
+    "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/",
+    "sourceLanguage": "en / zh",
+    "cost": "free",
+    "verifiedAt": null,
+    "status": "published",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "id": "promptfoo",
+    "title": {
+      "zh": "Promptfoo",
+      "en": "Promptfoo"
+    },
+    "summary": {
+      "zh": "帮助工程师把提示词与模型输出比较变成可重复的评估；实际能力和收费以官网为准。",
+      "en": "Helps engineers make prompt and model-output comparisons repeatable. Check the official site for current features and pricing."
+    },
+    "category": "tools",
+    "tags": [
+      "delivery"
+    ],
+    "topics": [
+      "delivery"
+    ],
+    "url": "https://www.promptfoo.dev/docs/intro/",
+    "sourceLanguage": "en",
+    "cost": "unknown",
+    "verifiedAt": null,
+    "status": "published",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "id": "fullstack",
+    "title": {
+      "zh": "Full Stack Deep Learning",
+      "en": "Full Stack Deep Learning"
+    },
+    "summary": {
+      "zh": "面向希望补齐工程全流程的学习者，参考机器学习系统构建与运维材料。",
+      "en": "For learners filling engineering gaps: reference materials on building and operating machine learning systems."
+    },
+    "category": "engineering",
+    "tags": [
+      "delivery",
+      "operations"
+    ],
+    "topics": [
+      "delivery",
+      "operations"
+    ],
+    "url": "https://fullstackdeeplearning.com/",
+    "sourceLanguage": "en",
+    "cost": "unknown",
+    "verifiedAt": null,
+    "status": "published",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "id": "huggingface",
+    "title": {
+      "zh": "Hugging Face 社区",
+      "en": "Hugging Face community"
+    },
+    "summary": {
+      "zh": "适合查找模型使用讨论、复现问题与社区经验。社区回答需结合版本和官方资料核实。",
+      "en": "Find model discussions, reproducibility questions and community experience. Verify advice against versions and official sources."
+    },
+    "category": "community",
+    "tags": [
+      "foundations",
+      "data"
+    ],
+    "topics": [
+      "foundations",
+      "data"
+    ],
+    "url": "https://discuss.huggingface.co/",
+    "sourceLanguage": "en",
+    "cost": "free",
+    "verifiedAt": null,
+    "status": "published",
+    "updatedAt": "2026-10-23"
+  }
+]

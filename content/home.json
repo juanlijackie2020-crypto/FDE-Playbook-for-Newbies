@@ -1,0 +1,53 @@
+{
+  "featuredKnowledge": [
+    "discovery-map",
+    "rag-evidence"
+  ],
+  "featuredCases": [
+    "support-pilot"
+  ],
+  "featuredResources": [
+    "copilot-docs"
+  ],
+  "path": [
+    {
+      "stage": "understand",
+      "knowledge": [
+        "fde-role",
+        "tencent-adp-course"
+      ],
+      "cases": [
+        "support-pilot"
+      ]
+    },
+    {
+      "stage": "discover",
+      "knowledge": [
+        "discovery-map"
+      ],
+      "cases": [
+        "support-pilot"
+      ]
+    },
+    {
+      "stage": "design",
+      "knowledge": [
+        "solution-boundary",
+        "rag-evidence"
+      ],
+      "cases": [
+        "service-workflow"
+      ]
+    },
+    {
+      "stage": "deliver",
+      "knowledge": [
+        "evaluation-delivery",
+        "governance-loop"
+      ],
+      "cases": [
+        "service-workflow"
+      ]
+    }
+  ]
+}

@@ -1,1 +1,14 @@
-{"name":"fde-playbook","version":"0.2.0","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test tests/core.test.js tests/study-pack.test.js","test:browser":"node tests/browser.test.js","test:private":"node tests/private-pack.browser.js"}}
+{
+  "name": "fde-playbook",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/core.test.js tests/study-pack.test.js tests/platform.test.js tests/ai-service.test.js",
+    "test:browser": "node tests/platform.browser.js",
+    "test:private": "node tests/private-pack.browser.js",
+    "build": "node scripts/build-public.mjs",
+    "start:ai": "node ai-service.mjs"
+  }
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "background",
+    "label": {
+      "zh": "业务背景",
+      "en": "Business context"
+    }
+  },
+  {
+    "id": "pain",
+    "label": {
+      "zh": "用户与痛点",
+      "en": "Users & pain points"
+    }
+  },
+  {
+    "id": "discovery",
+    "label": {
+      "zh": "需求发现",
+      "en": "Discovery"
+    }
+  },
+  {
+    "id": "conditions",
+    "label": {
+      "zh": "数据和系统条件",
+      "en": "Data & systems"
+    }
+  },
+  {
+    "id": "design",
+    "label": {
+      "zh": "方案设计",
+      "en": "Solution design"
+    }
+  },
+  {
+    "id": "pilot",
+    "label": {
+      "zh": "最小验证",
+      "en": "Smallest useful pilot"
+    }
+  },
+  {
+    "id": "evaluation",
+    "label": {
+      "zh": "评估与验收",
+      "en": "Evaluation & acceptance"
+    }
+  },
+  {
+    "id": "operations",
+    "label": {
+      "zh": "交付与运营",
+      "en": "Delivery & operations"
+    }
+  },
+  {
+    "id": "risks",
+    "label": {
+      "zh": "风险及可复用经验",
+      "en": "Risks & reusable lessons"
+    }
+  }
+]

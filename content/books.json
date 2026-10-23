@@ -1,0 +1,63 @@
+[
+  {
+    "id": "hands-on-llms",
+    "title": {
+      "zh": "Hands-On Large Language Models",
+      "en": "Hands-On Large Language Models"
+    },
+    "author": "Jay Alammar & Maarten Grootendorst",
+    "summary": {
+      "zh": "通过可视化讲解理解语言模型、语义搜索与应用设计。适合建立基础概念后结合项目阅读。",
+      "en": "Visual explanations of language models, semantic search and application design. Read alongside a project after establishing basic concepts."
+    },
+    "topics": [
+      "foundations",
+      "data"
+    ],
+    "difficulty": "intermediate",
+    "stage": "design",
+    "sourceLanguage": "en",
+    "url": "https://www.llm-book.com/",
+    "access": "purchase",
+    "file": null,
+    "knowledge": [
+      "rag-evidence",
+      "agent-workflow"
+    ],
+    "cases": [
+      "support-pilot"
+    ],
+    "status": "published",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "id": "d2l",
+    "title": {
+      "zh": "动手学深度学习",
+      "en": "Dive into Deep Learning"
+    },
+    "author": "Aston Zhang, Zachary C. Lipton, Mu Li, Alexander J. Smola",
+    "summary": {
+      "zh": "用可运行示例补齐深度学习基础。无需先通读全书，可按项目需要查阅注意力机制和 Transformer 等主题。",
+      "en": "Build deep learning fundamentals with executable examples. Consult attention and Transformer chapters as needed; reading cover to cover is not a prerequisite."
+    },
+    "topics": [
+      "foundations"
+    ],
+    "difficulty": "intermediate",
+    "stage": "understand",
+    "sourceLanguage": "en / zh",
+    "url": "https://d2l.ai/",
+    "access": "free",
+    "file": null,
+    "knowledge": [
+      "fde-role",
+      "rag-evidence"
+    ],
+    "cases": [
+      "support-pilot"
+    ],
+    "status": "published",
+    "updatedAt": "2026-10-23"
+  }
+]

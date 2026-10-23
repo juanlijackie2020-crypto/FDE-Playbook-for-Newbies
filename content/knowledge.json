@@ -1,0 +1,446 @@
+[
+  {
+    "id": "fde-role",
+    "title": {
+      "zh": "FDE：把技术变成可交付的改变",
+      "en": "FDE: turning technology into deliverable change"
+    },
+    "summary": {
+      "zh": "FDE（Forward Deployed Engineer，前沿部署工程师）连接业务问题、技术实现与现场反馈。先理解工作，再选择工具。",
+      "en": "A Forward Deployed Engineer (FDE) connects business problems, implementation and feedback in the field. Understand the work before selecting tools."
+    },
+    "sourceType": "reference",
+    "source": {
+      "zh": "FDE Playbook 原创学习导读 · 非官方课程译文",
+      "en": "Original FDE Playbook learning guide · not an official course translation"
+    },
+    "sourceLanguage": "zh",
+    "topics": [
+      "foundations"
+    ],
+    "tags": [
+      "FDE",
+      "foundations"
+    ],
+    "difficulty": "beginner",
+    "stage": "understand",
+    "updatedAt": "2026-10-23",
+    "status": "published",
+    "url": "",
+    "file": null,
+    "relatedCases": [
+      "support-pilot"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "title": {
+          "zh": "工作从哪里开始",
+          "en": "Where the work starts"
+        },
+        "body": {
+          "zh": "先画出当前工作流：谁发起任务，使用什么信息，输出交给谁，在哪里返工。不要把“想要一个 Agent”直接等同于已经明确的业务需求。",
+          "en": "Map the current workflow: who starts a task, which information they use, who receives the output, and where rework happens. “We want an agent” is a starting point, not a defined requirement."
+        }
+      },
+      {
+        "id": "s2",
+        "title": {
+          "zh": "把产出写成可检验的约定",
+          "en": "Make deliverables testable"
+        },
+        "body": {
+          "zh": "把目标拆成业务目标、技术约束和验收方法。交付物可包括需求记录、数据流图、小规模验证、评测集和运行手册。具体范围要与业务负责人确认。",
+          "en": "Separate business goals, technical constraints and acceptance methods. Deliverables can include a discovery record, data flow, pilot, evaluation set and runbook. Agree the scope with the business owner."
+        }
+      }
+    ]
+  },
+  {
+    "id": "discovery-map",
+    "title": {
+      "zh": "需求访谈：从愿望追问到证据",
+      "en": "Discovery: follow a wish back to evidence"
+    },
+    "summary": {
+      "zh": "用具体事例理解流程、参与者、约束与成功标准。",
+      "en": "Use concrete examples to understand workflows, stakeholders, constraints and success criteria."
+    },
+    "sourceType": "reference",
+    "source": {
+      "zh": "FDE Playbook 原创学习导读 · 非官方课程译文",
+      "en": "Original FDE Playbook learning guide · not an official course translation"
+    },
+    "sourceLanguage": "zh",
+    "topics": [
+      "discovery"
+    ],
+    "tags": [
+      "FDE",
+      "discovery"
+    ],
+    "difficulty": "beginner",
+    "stage": "discover",
+    "updatedAt": "2026-10-23",
+    "status": "published",
+    "url": "",
+    "file": null,
+    "relatedCases": [
+      "support-pilot"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "title": {
+          "zh": "六组值得追问的问题",
+          "en": "Six useful lines of inquiry"
+        },
+        "body": {
+          "zh": "业务目标：为什么现在要改？流程与痛点：能否带我走一遍最近发生的例子？利益相关者：谁使用、谁审批、谁承担风险？数据与系统：信息在哪、谁能访问、质量如何？约束：时间、预算、团队和边界是什么？成功标准：谁依据什么证据验收？",
+          "en": "Goals: why change now? Workflow and pain: walk me through a recent example. Stakeholders: who uses, approves and bears the risk? Data and systems: where is the information, who can access it, and how reliable is it? Constraints: what are the timing, budget, team and boundaries? Success: who accepts the work and based on what evidence?"
+        }
+      },
+      {
+        "id": "s2",
+        "title": {
+          "zh": "区分事实与假设",
+          "en": "Separate facts from assumptions"
+        },
+        "body": {
+          "zh": "记录客户明确说出的事实，并保留原话与上下文。把你的解释标成假设，把没有问到的问题标成待确认。结束前复述理解，请客户纠正，并约定下一步需要谁提供什么。",
+          "en": "Record explicit statements with their context. Label your interpretation as an assumption and unanswered questions as open issues. Summarize, invite corrections, and agree who will provide what next."
+        }
+      }
+    ]
+  },
+  {
+    "id": "solution-boundary",
+    "title": {
+      "zh": "方案设计：先决定边界，再决定架构",
+      "en": "Solution design: boundaries before architecture"
+    },
+    "summary": {
+      "zh": "比较人工、规则、检索和 Agent 路径，写清失败时如何处理。",
+      "en": "Compare human, rule-based, retrieval and agent approaches, including what happens when they fail."
+    },
+    "sourceType": "reference",
+    "source": {
+      "zh": "FDE Playbook 原创学习导读 · 非官方课程译文",
+      "en": "Original FDE Playbook learning guide · not an official course translation"
+    },
+    "sourceLanguage": "zh",
+    "topics": [
+      "design"
+    ],
+    "tags": [
+      "FDE",
+      "design"
+    ],
+    "difficulty": "beginner",
+    "stage": "design",
+    "updatedAt": "2026-10-23",
+    "status": "published",
+    "url": "",
+    "file": null,
+    "relatedCases": [
+      "support-pilot"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "title": {
+          "zh": "选择最小可验证方案",
+          "en": "Choose the smallest testable solution"
+        },
+        "body": {
+          "zh": "从一个明确任务与有限用户群开始。稳定规则适合确定性流程；知识检索适合有可信资料的查找；多步工具调用需要额外的权限、状态和失败恢复设计。不要因工具可用就扩大自动化范围。",
+          "en": "Start with one task and a limited user group. Stable rules suit deterministic workflows; retrieval suits lookup against reliable documents; multi-step tool use needs explicit permission, state and recovery design. Tool availability alone does not justify broader automation."
+        }
+      },
+      {
+        "id": "s2",
+        "title": {
+          "zh": "画出责任边界",
+          "en": "Draw responsibility boundaries"
+        },
+        "body": {
+          "zh": "标明输入、检索、模型、工具、人工确认与日志的位置。区分只读建议和有副作用的写操作。风险高或证据不足时，返回可理解的原因并交给人工。",
+          "en": "Show input, retrieval, model, tools, human review and logs. Distinguish read-only advice from operations with side effects. Escalate high-risk or weakly supported decisions to a human with a clear reason."
+        }
+      }
+    ]
+  },
+  {
+    "id": "rag-evidence",
+    "title": {
+      "zh": "RAG：从文档到可核查的回答",
+      "en": "RAG: from documents to verifiable answers"
+    },
+    "summary": {
+      "zh": "检索增强生成的关键，是相关证据、访问控制与可复核引用。",
+      "en": "Retrieval-augmented generation depends on relevant evidence, access control and checkable citations."
+    },
+    "sourceType": "reference",
+    "source": {
+      "zh": "FDE Playbook 原创学习导读 · 非官方课程译文",
+      "en": "Original FDE Playbook learning guide · not an official course translation"
+    },
+    "sourceLanguage": "zh",
+    "topics": [
+      "data"
+    ],
+    "tags": [
+      "FDE",
+      "data"
+    ],
+    "difficulty": "beginner",
+    "stage": "design",
+    "updatedAt": "2026-10-23",
+    "status": "published",
+    "url": "",
+    "file": null,
+    "relatedCases": [
+      "support-pilot"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "title": {
+          "zh": "先检查资料",
+          "en": "Inspect the sources first"
+        },
+        "body": {
+          "zh": "区分有文本层的 PDF 和扫描图像。前者需要文本提取与版面检查；后者通常需要 OCR。表格、截图和多栏文字都可能提取错误。没有正文时，只能做元信息搜索，不能宣称全文问答。",
+          "en": "Distinguish PDFs with text layers from scanned images. Text PDFs need extraction and layout checks; scans usually need OCR. Tables, screenshots and multiple columns can be misread. Without extracted text, metadata search is not full-text question answering."
+        }
+      },
+      {
+        "id": "s2",
+        "title": {
+          "zh": "检索与引用",
+          "en": "Retrieval and citations"
+        },
+        "body": {
+          "zh": "切分时保留文档 ID、章节、版本和已核验的页码。检索必须遵守用户权限。回答中引用真实片段；片段没有支持的结论应标为推断，证据不足时应明确说明。不要用相似文件名代替依据。",
+          "en": "Preserve document IDs, sections, versions and verified page numbers during chunking. Retrieval must respect access permissions. Cite actual passages; label unsupported conclusions as inferences and acknowledge insufficient evidence. A similar filename is not evidence."
+        }
+      },
+      {
+        "id": "s3",
+        "title": {
+          "zh": "分别诊断检索与生成",
+          "en": "Diagnose retrieval and generation separately"
+        },
+        "body": {
+          "zh": "准备带标准证据的代表性问题。先检查检索是否找到了需要的片段，再检查回答是否忠于证据。记录失败类别，避免只调整提示词而忽略资料缺失、权限错误或切分问题。",
+          "en": "Use representative questions with expected evidence. First check whether retrieval found the needed passages, then whether the answer stayed faithful to them. Classify failures instead of only changing prompts while missing documents, permissions or chunking remain unresolved."
+        }
+      }
+    ]
+  },
+  {
+    "id": "agent-workflow",
+    "title": {
+      "zh": "Agent 与工作流：把行动放进可控流程",
+      "en": "Agents and workflows: keeping actions controllable"
+    },
+    "summary": {
+      "zh": "工具调用需要参数校验、授权、重试边界和可恢复状态。",
+      "en": "Tool use needs validated inputs, authorization, bounded retries and recoverable state."
+    },
+    "sourceType": "reference",
+    "source": {
+      "zh": "FDE Playbook 原创学习导读 · 非官方课程译文",
+      "en": "Original FDE Playbook learning guide · not an official course translation"
+    },
+    "sourceLanguage": "zh",
+    "topics": [
+      "agents"
+    ],
+    "tags": [
+      "FDE",
+      "agents"
+    ],
+    "difficulty": "beginner",
+    "stage": "design",
+    "updatedAt": "2026-10-23",
+    "status": "published",
+    "url": "",
+    "file": null,
+    "relatedCases": [
+      "service-workflow"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "title": {
+          "zh": "确定性与灵活性",
+          "en": "Determinism and flexibility"
+        },
+        "body": {
+          "zh": "流程清晰时，先使用显式步骤；任务需要动态判断时，再引入模型决策。为工具定义输入输出、权限和错误语义。对重复执行可能产生副作用的操作，设计幂等或人工确认。",
+          "en": "Use explicit steps for well-defined processes and model decisions where adaptive judgment is needed. Define tool inputs, outputs, permissions and errors. For operations whose repetition has side effects, use idempotency or human confirmation."
+        }
+      },
+      {
+        "id": "s2",
+        "title": {
+          "zh": "失败也属于流程",
+          "en": "Failure is part of the workflow"
+        },
+        "body": {
+          "zh": "设定超时、重试次数、终止条件和人工接手入口。不要让失败不断触发新的调用。保留必要的诊断信息，同时避免在日志中泄露用户敏感内容。",
+          "en": "Set timeouts, retry limits, stop conditions and a handoff path. Do not let failures create endless tool calls. Keep useful diagnostics without exposing sensitive user content in logs."
+        }
+      }
+    ]
+  },
+  {
+    "id": "evaluation-delivery",
+    "title": {
+      "zh": "验证与交付：先约定怎样算成功",
+      "en": "Evaluation and delivery: agree what success means"
+    },
+    "summary": {
+      "zh": "用代表性任务验证效果、风险、成本和运行边界。",
+      "en": "Validate effectiveness, risk, cost and operating boundaries on representative tasks."
+    },
+    "sourceType": "reference",
+    "source": {
+      "zh": "FDE Playbook 原创学习导读 · 非官方课程译文",
+      "en": "Original FDE Playbook learning guide · not an official course translation"
+    },
+    "sourceLanguage": "zh",
+    "topics": [
+      "delivery"
+    ],
+    "tags": [
+      "FDE",
+      "delivery"
+    ],
+    "difficulty": "beginner",
+    "stage": "deliver",
+    "updatedAt": "2026-10-23",
+    "status": "published",
+    "url": "",
+    "file": null,
+    "relatedCases": [
+      "service-workflow"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "title": {
+          "zh": "把指标落到任务上",
+          "en": "Tie measures to tasks"
+        },
+        "body": {
+          "zh": "与业务方共同选取任务样本，说明正确、可接受与不可接受分别是什么。记录基线，检查错误类型、延迟、单次成本与人工接管情况。阈值应由真实场景决定，本导读不预设通用达标数字。",
+          "en": "Select task samples with the business team and define correct, acceptable and unacceptable outcomes. Record a baseline and inspect failure types, latency, per-task cost and handoffs. Thresholds depend on the use case; this guide does not invent universal targets."
+        }
+      },
+      {
+        "id": "s2",
+        "title": {
+          "zh": "交付不止上线",
+          "en": "Delivery continues after launch"
+        },
+        "body": {
+          "zh": "明确发布负责人、告警接收者、回滚方法、数据更新责任和复评周期。试点结果不能直接外推到全部用户；扩展前重新检查代表性、权限与容量。",
+          "en": "Name the release owner, alert recipient, rollback method, data maintenance owner and review cadence. A pilot does not establish performance for all users; reassess coverage, permissions and capacity before expanding."
+        }
+      }
+    ]
+  },
+  {
+    "id": "governance-loop",
+    "title": {
+      "zh": "治理与运营：让系统可追溯、可停止",
+      "en": "Governance and operations: traceable and stoppable systems"
+    },
+    "summary": {
+      "zh": "从最小权限、变更管理与运行手册建立长期可控性。",
+      "en": "Build lasting control through least privilege, change management and runbooks."
+    },
+    "sourceType": "reference",
+    "source": {
+      "zh": "FDE Playbook 原创学习导读 · 非官方课程译文",
+      "en": "Original FDE Playbook learning guide · not an official course translation"
+    },
+    "sourceLanguage": "zh",
+    "topics": [
+      "operations"
+    ],
+    "tags": [
+      "FDE",
+      "operations"
+    ],
+    "difficulty": "beginner",
+    "stage": "deliver",
+    "updatedAt": "2026-10-23",
+    "status": "published",
+    "url": "",
+    "file": null,
+    "relatedCases": [
+      "service-workflow"
+    ],
+    "sections": [
+      {
+        "id": "s1",
+        "title": {
+          "zh": "控制权限与数据流",
+          "en": "Control access and data flow"
+        },
+        "body": {
+          "zh": "明确哪些数据可以进入模型服务，谁批准，保留多久。服务端保管密钥；按需要授予工具权限。为知识版本、模型配置和重要操作留下适量审计记录。",
+          "en": "Establish which data may enter the model service, who approves it and how long it is retained. Keep keys server-side and grant tools only needed permissions. Maintain proportionate audit records for knowledge versions, model settings and consequential actions."
+        }
+      },
+      {
+        "id": "s2",
+        "title": {
+          "zh": "持续复评",
+          "en": "Review continuously"
+        },
+        "body": {
+          "zh": "知识、模型或业务流程变化后，重新运行关键评测。记录异常、处理人和修复证据。保留关闭自动化及恢复人工流程的明确路径。",
+          "en": "Rerun critical evaluations when knowledge, models or business processes change. Record incidents, owners and evidence of fixes. Keep an explicit way to disable automation and restore a human workflow."
+        }
+      }
+    ]
+  },
+  {
+    "id": "tencent-adp-course",
+    "title": {
+      "zh": "腾讯云 ADP FDE 官方课程入口",
+      "en": "Tencent Cloud ADP FDE official course"
+    },
+    "summary": {
+      "zh": "通过官方入口学习 AI、Agent、ADP 产品能力与交付实践。此处提供课程目录与来源信息，不公开原讲义。",
+      "en": "Use the official course for AI, agents, ADP capabilities and delivery practice. This entry provides metadata and a directory, not the original course documents."
+    },
+    "sourceType": "tencent",
+    "source": {
+      "zh": "腾讯云教育 · 官方链接；导读由平台编写",
+      "en": "Tencent Cloud Education · official link; introduction written by this platform"
+    },
+    "sourceLanguage": "zh",
+    "topics": [
+      "foundations",
+      "agents",
+      "delivery"
+    ],
+    "tags": [
+      "ADP",
+      "Tencent"
+    ],
+    "difficulty": "beginner",
+    "stage": "understand",
+    "updatedAt": "2026-10-23",
+    "status": "published",
+    "url": "https://cloud.tencent.com/edu/learning/course-4742-84527-84531",
+    "file": null,
+    "relatedCases": [],
+    "sections": []
+  }
+]

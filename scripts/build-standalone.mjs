@@ -1,13 +1,5 @@
-import {readFile,writeFile} from 'node:fs/promises';
-const root=new URL('../',import.meta.url);
-const read=name=>readFile(new URL(name,root),'utf8');
-let html=await read('index.html');
-const css=await read('style.css'),core=(await read('core.js')).replace(/\bexport /g,''),directory=await read('course.json');
-let app=(await read('app.js')).replace(/^import .*\n/gm,'').replace(/^const courseDirectory=.*$/m,`const courseDirectory=${directory.trim()};`);
-app=app.replace('async function loadCurrentEnvelope(){',`async function loadCurrentEnvelope(){return ${await read('study-pack.enc.json')};`);
-app=app.replace("if('serviceWorker' in navigator){","if(location.protocol==='file:'){$('#offline-status').textContent='本地单文件版 · 无需联网';}else if('serviceWorker' in navigator){");
-app=app.replace('async function checkOffline(){try{',"async function checkOffline(){if(location.protocol==='file:'){if($('#cache-status'))$('#cache-status').textContent='单文件版：应用与目录已内嵌，无需服务器。课程正文仍待导入。';if($('#storage-status'))$('#storage-status').textContent='请保持文件路径不变，移动前导出备份。';return;}try{");
-html=html.replace('<link rel="manifest" href="manifest.json">','').replace('<link rel="icon" href="icon.svg" type="image/svg+xml">','').replace('<link rel="stylesheet" href="style.css">',`<style>${css}</style>`);
-html=html.replace('<script type="module" src="app.js"></script>',`<script type="module">\n${(core+'\n'+(await read('study-pack.js')).replace(/^import .*\n/gm,'').replace(/\bexport /g,'')+'\n'+app).replace(/<\/script/gi,'<\\/script')}\n</script>`);
-await writeFile(new URL('FDE-standalone.html',root),html);
-console.log('Standalone application rebuilt; course directory embedded, no course body included.');
+// The public platform uses independently maintained data and ES modules.
+// Keep an honest compatibility entry instead of emitting a broken inlined bundle.
+import {writeFile} from 'node:fs/promises';
+await writeFile(new URL('../FDE-standalone.html',import.meta.url),`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FDE Playbook</title><body><main><h1>FDE Playbook</h1><p>新版使用模块化内容。请打开在线平台，首次缓存后可离线阅读；此文件仅保留为入口。</p><p>The new platform uses modular content. Open the website and cache it for offline reading. This file is a link, not an offline bundle.</p><p><a href="https://juanlijackie2020-crypto.github.io/FDE-Playbook-for-Newbies/">打开平台 / Open FDE Playbook</a></p><p>本机预览 / Local preview: Node.js 22+, npm start.</p></main></body></html>\n`);
+console.log('Updated compatibility entry. Use the HTTPS app for offline caching.');
